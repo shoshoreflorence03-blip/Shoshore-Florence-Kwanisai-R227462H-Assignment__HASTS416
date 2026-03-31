@@ -1,0 +1,155 @@
+HASTS416 - STOCHASTIC PROCESSES : TUTORIAL 1 IN R 
+COMPLETE SOLUTION OUTPUT: A1, A2, A3 
+==================================================== 
+ 
+==================================================== 
+A1 
+==================================================== 
+ 
+A1(a) 
+Transient classes: {2}, {3,4,5} 
+Recurrent class: {1} 
+Absorbing state: 1 
+Reflecting state: 1 
+Periods: 
+d(1) = 1 
+d(2) = undefined (no return to state 2 once left) 
+d(3) = 3 
+d(4) = 3 
+d(5) = 3 
+ 
+A1(b) 
+Comment: 
+All three trajectories eventually end in state 1 and remain there. 
+States 3, 4 and 5 may show temporary cycling before absorption in state 1. 
+ 
+A1(c) 
+Steady-state probabilities: 
+  State Steady_State_Probability
+1     1                        1
+2     2                        0
+3     3                        0
+4     4                        0
+5     5                        0
+Interpretation: 
+In the long run, the chain spends all its time in state 1. 
+Therefore the stationary distribution is (1,0,0,0,0). 
+Is it an ergodic chain? No. The chain is not irreducible. 
+ 
+A1(d) 
+Comment: 
+The unconditional probabilities converge to (1,0,0,0,0). 
+Probability of state 1 rises quickly to 1, while probabilities of the other states decay to 0. 
+The convergence is relatively fast because state 1 is absorbing. 
+ 
+==================================================== 
+A2 
+==================================================== 
+ 
+A2(a) 
+The Markov chain diagram has been plotted and saved. 
+ 
+A2(b) 
+Recurrent class: {1,2} 
+Transient class: {3,4,5,6,7} 
+Absorbing states: none 
+Reflecting states: 5, 6, 7 
+Periods: 
+d(1) = 2 
+d(2) = 2 
+d(3) = undefined (no return) 
+d(4) = 1 
+d(5) = 1 
+d(6) = 1 
+d(7) = 1 
+ 
+A2(c) 
+Discussion: 
+A trajectory starting in states 3 to 7 may wander for some time, 
+but once it enters the class {1,2}, it alternates forever between states 1 and 2. 
+This shows that {1,2} is a closed recurrent class, while {3,4,5,6,7} is transient. 
+ 
+A2(d) 
+Limiting / stationary probabilities: 
+  State Stationary_Probability
+1     1                    0.5
+2     2                    0.5
+3     3                    0.0
+4     4                    0.0
+5     5                    0.0
+6     6                    0.0
+7     7                    0.0
+Interpretation: 
+In the long run, probability mass is concentrated on states 1 and 2. 
+The stationary distribution is (1/2, 1/2, 0, 0, 0, 0, 0). 
+Is the chain ergodic? No. 
+Although a stationary distribution exists, the recurrent class {1,2} has period 2, 
+so the chain is not ergodic. 
+ 
+==================================================== 
+A3 
+==================================================== 
+For question A3: 
+The first transition matrix used is: 
+[[0.4, 0.4, 0.2], [0.3, 0.4, 0.3], [0, 0.1, 0.9]] 
+ 
+A3(a) 
+From 1 PM to 4 PM = 3 hours = 9 steps of 20 minutes each. 
+From 4 PM to 6 PM = 2 hours = 6 steps of 20 minutes each. 
+Distribution at 6 PM: 
+   State Probability
+1  light    0.014801
+2  heavy    0.132596
+3 jammed    0.852603
+P(light at 6 PM)  = 0.014801 
+P(heavy at 6 PM)  = 0.132596 
+P(jammed at 6 PM) = 0.852603 
+Interpretation: 
+By 6 PM, traffic is most likely to be jammed. 
+ 
+A3(b) 
+Simulated proportions at 6 PM from 10,000 trajectories: 
+   State Simulated_Proportion
+1  light               0.0146
+2  heavy               0.1287
+3 jammed               0.8567
+Comment: 
+The simulated proportions are close to the exact probabilities found in A3(a), 
+thereby verifying the result. 
+ 
+==================================================== 
+A1, A2 AND A3 COMMENTS 
+==================================================== 
+   Question
+1     A1(a)
+2     A1(b)
+3     A1(c)
+4     A1(d)
+5     A2(a)
+6     A2(b)
+7     A2(c)
+8     A2(d)
+9     A3(a)
+10    A3(b)
+                                                                                                                                                             Question_Text
+1  Use R to plot a diagram of the Markov chain. Identify all transient and recurrent classes. Identify all absorbing and reflective states. Find the period of each state.
+2                                                                 Simulate three trajectories of the chain that start at a randomly chosen state. Comment on what you see.
+3                                                                                          Find the steady-state probabilities and interpret them. Is it an ergodic chain?
+4                         Plot the unconditional probabilities at time n against time and comment on how fast the probabilities converge to the steady-state distribution.
+5                                                                                                                             Use R to plot a diagram of the Markov chain.
+6                                                         Identify all recurrent and transient classes. Find their periods. Are there any absorbing and reflecting states?
+7                                                        Simulate two trajectories of the chain that start at a randomly selected state. Discuss what you see in the plot.
+8                                                                                           Calculate the limiting probabilities and interpret them. Is the chain ergodic?
+9                                                                                If the traffic starts with light state at 1PM, what is the distribution of states at 6PM?
+10                                                                                                 Simulate 10,000 trajectories to verify the result of the previous part.
+                                                                                                                                        Result
+1  Transient classes {2},{3,4,5}; recurrent class {1}; absorbing state 1; reflecting state 1; periods d(1)=1, d(2)=undefined, d(3)=d(4)=d(5)=3
+2                                                                                       Three simulated trajectories eventually end in state 1
+3                                                                                           Steady-state distribution (1,0,0,0,0); not ergodic
+4                                                                                          Unconditional probabilities converge to (1,0,0,0,0)
+5                                                                                                       Markov chain diagram plotted and saved
+6                         Recurrent class {1,2}; transient class {3,4,5,6,7}; no absorbing states; reflecting states 5,6,7; periods identified
+7                                                                                    Two simulated trajectories show eventual entry into {1,2}
+8                                                                                     Stationary distribution (1/2,1/2,0,0,0,0,0); not ergodic
+9                                                                                        Distribution at 6 PM = (0.014801, 0.132596, 0.852603)
+10                                                                                                  10,000 simulated trajectories verify A3(a)
